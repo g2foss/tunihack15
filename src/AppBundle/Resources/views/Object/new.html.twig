@@ -1,0 +1,70 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}AppBundle:Object:new{% endblock %}
+
+{% block body %}
+  <div class="row">
+    <div class="content z-depth-1 col l6 offset-l3" >
+      <legend class="login"> New Offer:</legend>
+
+        {{ form_start(form) }}
+        <div class="input-field">
+            <i class="material-icons prefix">account_circle</i>
+            {{ form_widget(form.name,{'attr':{'class':'validate'}}) }}
+            {{ form_label(form.name) }}
+        </div>
+        <div class="input-field">
+            <i class="material-icons prefix">account_circle</i>
+            {{ form_widget(form.description,{'attr':{'class':'materialize-textarea validate'}}) }}
+            {{ form_label(form.description) }}
+        </div>
+        <div class="input-field">
+            <i class="material-icons prefix">account_circle</i>
+            {{ form_widget(form.deadline,{'attr':{'class':'datetime validate'}}) }}
+            {{ form_label(form.deadline) }}
+        </div>
+
+        <label>Fields</label>
+        {{ form_widget(form.fields) }}
+        <button class="btn orange" id="add_field_button">Add field</button>
+        {{ form_widget(form.submit, {'attr' : {'class': 'btn'}}) }}
+
+        {{ form_rest(form) }}
+        {{ form_end(form) }}
+
+
+    </div>
+  </div>
+
+{% endblock %}
+
+{% block javascripts %}
+    <script>
+        field = document.querySelector('#object_fields');
+        html = field.getAttribute('data-prototype');
+        html = '<div><div class="row" id="object_fields___name__"><div class="input-field col l8"><i class="material-icons prefix">description</i><input type="text" id="object_fields___name___name" name="object[fields][__name__][name]" required="required" maxlength="255" /></div><div class="input-field col l4"><i class="material-icons prefix">shopping_cart</i><input type="number" id="object_fields___name___quantity" name="object[fields][__name__][quantity]" required="required" /></div></div></div>';
+        c = 0;
+        button = document.querySelector('#add_field_button');
+        button.addEventListener('click', function(){
+            var name = document.querySelector('#object_fields_'+(c-1)+'_name');
+            var quantity = document.querySelector('#object_fields_'+(c-1)+'_quantity');
+            if(name.value != "" && quantity.value != "")
+                add();
+        });
+        function add(){
+            var toAdd  = html.replace(/__name__/g, c);
+            child = document.createElement('div');
+            child.innerHTML = toAdd;
+            field.appendChild(child);
+            c++;
+        }
+        add();
+
+    </script>
+    <script>
+        $('.datepicker').pickadate({
+            selectMonths: true, // Creates a dropdown to control month
+            selectYears: 15 // Creates a dropdown of 15 years to control year
+        });
+    </script>
+{% endblock %}

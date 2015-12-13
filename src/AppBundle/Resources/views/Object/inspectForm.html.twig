@@ -1,0 +1,29 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}My Offer{% endblock %}
+
+{% block body %}
+    <div class="row">
+        <div class="content z-depth-1 col l6 offset-l3" >
+            <legend class="login"> Enter the keys of your offer:</legend>
+            <!--Debut Content!-->
+            {{ form_start(form) }}
+            <div class="row">
+                <div class="input-field col l12">
+                    <i class="material-icons prefix">lock_open</i>
+                    {{ form_label(form.publicKey) }}
+                    {{ form_widget(form.publicKey,{'attr':{'class':'validate'}}) }}
+                </div>
+                <div class="input-field col l12">
+                    <i class="material-icons prefix">lock_outline</i>
+                    {{ form_widget(form.privateKey,{'attr':{'class':'validate'}}) }}
+                    {{ form_label(form.privateKey) }}
+                </div>
+                {{ form_widget(form.submit,{'attr':{'class':'waves-effect waves-light btn right'}}) }}
+            </div>
+            {{ form_rest(form) }}
+            {{ form_end(form) }}
+        </div>
+
+    </div>
+{% endblock %}

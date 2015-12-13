@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <!--Import Google Icon Font-->
+    <link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" href="{{ asset('css/materialize.min.css') }}"  media="screen,projection"/>
+    <link type="text/css" rel="stylesheet" href="{{ asset('css/mystyle.css') }}"  media="screen,projection"/>
+
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+
+<body id="back">
+<div class="trans">
+</div>
+<div class="index_section">
+    <h2 id="titleIndex">Get $ecured Work efficiently</h2>
+    <div class="index_actions" align="center">
+        <p><a class=" waves-effect waves-light teal darken-1 btn btn modal-trigger index_actions_action1 "  href="#modal1">Get started</a></p>
+        <p><a class="waves-effect waves-light teal darken-1 btn  index_actions_action2" href="{{ path('login') }}">Sign in</a></p>
+    </div>
+
+</div>
+<div id="modal1" class="modal">
+    <div class="modal-content" style="padding-bottom: 0px;">
+        <h4>Modal Header</h4>
+        <p class="agreement">  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Curabitur eu hendrerit dui. Suspendisse accumsan volutpat augue a porta. Sed posuere ornare dapibus. Phasellus eget pretium enim. Nullam at tortor vitae dui placerat luctus eu eget massa. Curabitur non massa sapien. Suspendisse sit amet mi ullamcorper, viverra massa eu, gravida sem. Curabitur quis enim quis velit congue malesuada eget et nisi. Nullam ultricies, dui ac euismod interdum, erat lorem laoreet ipsum, id lobortis purus neque a dolor. Aliquam fringilla sollicitudin vehicula. Nunc porttitor luctus ex vel posuere.
+
+            Etiam gravida lacus sit amet tortor viverra, at tristique velit volutpat. Cras et tempus tellus, sit amet venenatis justo. Aenean imperdiet mi vitae urna dictum vehicula. Proin eleifend lacus nec fermentum lobortis. Aliquam erat volutpat. Morbi euismod purus velit, ac tempor ipsum molestie nec. Donec aliquam, risus in sagittis tempor, mauris turpis gravida orci, quis laoreet orci dolor ac tellus. Nam congue consectetur facilisis. Suspendisse nec lobortis purus. Mauris nibh metus, tristique at sodales nec, aliquam vel nibh. Etiam sollicitudin pulvinar ante non mattis. Etiam quis elit nec nisi volutpat commodo.
+
+            Aenean magna nisi, egestas ut justo eget, imperdiet aliquet mi. Phasellus cursus ex pellentesque, malesuada nunc ut, eleifend nulla. Morbi dignissim auctor odio, vitae sagittis sapien malesuada eget. Aliquam quis lorem in turpis luctus commodo eu id felis. Sed sapien augue, tempus at mauris ac, vestibulum dictum augue. Cras vitae ultrices lacus, in feugiat lorem. Pellentesque odio magna, pharetra sed semper sit amet, varius sed libero.
+
+            Ut feugiat dui a massa venenatis, ac egestas massa egestas. Nam et sem odio. Proin vulputate nisl eget augue convallis, sit amet pulvinar sapien sagittis. Pellentesque ultricies vestibulum justo, ut ultrices tortor elementum eu. Donec ante diam, porta eu elit ac, ultricies mollis nibh. Donec quis ligula tincidunt, mattis nibh et, commodo dolor. Praesent vel orci in justo cursus dignissim et sed sapien. Aenean gravida maximus magna sed pretium. Sed iaculis, leo et viverra varius, lectus erat molestie leo, ut ullamcorper mauris risus sed tellus. Nulla vitae accumsan metus. Ut sed mauris sit amet arcu facilisis tincidunt id eu lectus. Curabitur lacinia libero tellus, ac egestas neque aliquet at. Maecenas faucibus, orci a condimentum pretium, libero diam imperdiet eros, eu iaculis turpis orci vel nunc. Cras sit amet auctor turpis. Fusce accumsan mauris tempor lorem lacinia pharetra.
+
+            Mauris eget ex laoreet, tincidunt enim in, euismod mauris. Fusce eleifend ac ante at rhoncus. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Praesent dignissim justo eu lorem vestibulum ultricies. Ut a tellus condimentum, rutrum augue viverra, tempor neque. Etiam auctor enim finibus ante pretium, a fringilla velit egestas. Praesent ullamcorper eros et erat euismod, quis condimentum purus mollis.
+        </p>
+    </div>
+    <form method="POST" action="{{ path('signIn') }}">
+
+        <p style="padding: 0px 25px;
+margin: 0px">
+            <input type="checkbox" id="checked" required="required">
+            <label for="checked">I have read and accepted the agreement</label>
+        </p>
+    <div class="modal-footer">
+        <input type="submit" value="Agree" class="waves-effect waves-light teal darken-1 btn">
+    </div>
+    </form>
+</div>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script type="text/javascript" src="{{ asset('js/materialize.min.js') }}"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.modal-trigger').leanModal();
+    });
+</script>s
+</body>
+</html>

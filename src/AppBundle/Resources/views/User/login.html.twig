@@ -1,0 +1,26 @@
+{% extends "::base.html.twig" %}
+{% block body %}
+    <div class="row">
+        <div class="content z-depth-1 col l6 offset-l3" >
+            <legend class="login"> Login</legend>
+            <!--Debut Content!-->
+            {{ form_start(form) }}
+                <div class="row">
+                    <div class="input-field col l12 m12 s12">
+                        <i class="material-icons prefix">lock_open</i>
+                        {{ form_widget(form.publicKey,{'attr':{'class':'validate'}}) }}
+                        {{ form_label(form.publicKey) }}
+                    </div>
+                    <div class="input-field col l12 m12 s12">
+                        <i class="material-icons prefix">lock_outline</i>
+                        {{ form_widget(form.privateKey,{'attr':{'class':'validate'}}) }}
+                        {{ form_label(form.privateKey) }}
+                    </div>
+                    {{ form_widget(form.submit,{'attr':{'class':'submit waves-effect waves-light btn right','value':'Sign up'}}) }}
+                </div>
+            {{ form_rest(form) }}
+            {{ form_end(form) }}
+            <!-- fin Content!-->
+        </div>
+    </div>
+{% endblock %}

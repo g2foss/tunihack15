@@ -1,0 +1,50 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}AppBundle:Object:new{% endblock %}
+
+{% block body %}
+
+
+    <div class="row">
+        <div class=" content z-depth-1 col l10 offset-l1 ">
+            <legend class="login"> Offer Name : {{ object.name }}</legend>
+            <div class="divider"></div>
+            {% if events|length>0 %}
+            <p> Your offer has received {{ events|length }} responses in wich the best is the one with this public key : {{ user.publicKey }}</p>
+            {% else %}
+                <p> Your offer has not received any response.</p>
+            {% endif %}
+                <table class="bordered">
+
+                <thead>
+                <tr>
+                    <th data-field="id">Name</th>
+                    <th data-field="name">Quantity</th>
+                    <th data-field="price">Unit Price</th>
+                    <th data-field="price">Total</th>
+                </tr>
+                </thead>
+                <tbody>
+                {% if events and events|length>0 %}
+                {% for i,field in object.fields %}
+                    <tr>
+                        <td>{{ field.name }}</td>
+                        <td>{{ field.quantity }}</td>
+                        <td>{{ event.values[i] }}</td>
+                        <td>{{ event.values[i] * field.quantity }} dt</td>
+                    </tr>
+                {% endfor %}
+
+                <tr style="border-top: 1px solid grey;">
+                    <td colspan="3"></td>
+                    <td> Total= {{ montant }} dt</td>
+                </tr>
+                {% else %}
+                    <tr><td colspan="4" style="text-align: center;">No submissions were received</td></tr>
+                {% endif %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+{% endblock %}

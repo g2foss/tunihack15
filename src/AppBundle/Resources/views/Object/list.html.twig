@@ -1,0 +1,52 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}AppBundle:Object:list{% endblock %}
+
+{% block body %}
+    <div class="row">
+
+
+
+        <div class=" content z-depth-1 col l10 offset-l1 ">
+            <legend class="login"> Offers({{ objects|length }}) :</legend>
+            <div class="divider"></div>
+            <table class="striped">
+                <thead>
+                <tr>
+                    <th data-field="id">Name</th>
+                    <th data-field="name">Description</th>
+                    <th data-field="price">Deadline</th>
+                    <th data-field="price">Action</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                {% for object in objects %}
+                    <tr>
+                        <td>{{ object.name }}</td>
+                        <td>{{ object.description }}</td>
+                        <td>{{ object.deadline|date }}</td>
+                        <td><a href="{{ path('object_view',{'id':object.id}) }}">View more</a></td>
+                    </tr>
+                {% else %}
+                <tr>
+                    <td colspan="4" align="center" style="text-align: center;">No entries found!</td>
+                </tr>
+                {% endfor %}
+
+                </tbody>
+            </table>
+            {% if objects and objects|length>0 %}
+            <ul class="pagination" style="margin-left: 36%;">
+                <li class="disabled"><a href="#!"><i class="material-icons">chevron_left</i></a></li>
+                <li class="active teal"><a href="#!">1</a></li>
+                <li class="waves-effect"><a href="#!">2</a></li>
+                <li class="waves-effect"><a href="#!">3</a></li>
+                <li class="waves-effect"><a href="#!">4</a></li>
+                <li class="waves-effect"><a href="#!">5</a></li>
+                <li class="waves-effect"><a href="#!"><i class="material-icons">chevron_right</i></a></li>
+            </ul>
+            {% endif %}
+    </div>
+</div>
+{% endblock %}

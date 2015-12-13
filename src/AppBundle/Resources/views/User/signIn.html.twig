@@ -1,0 +1,37 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}AppBundle:Object:new{% endblock %}
+
+{% block body %}
+
+    <div class="row">
+        <div class="content z-depth-1 col l6 offset-l3" >
+            <legend class="login"> Keys</legend>
+            <!--Debut Content!-->
+            <form >
+                <div class="row">
+                    <div class=" col l12 m12 s12" style="float: none;">
+                        <legend class="login" style="font-size: 17px;
+font-weight: bold;">Public Key :</legend>
+                        <p>  {{ user.publicKey }}    </p>
+
+                    </div>
+                    <div class=" col l12 m12 s12" style="float: none;">
+                        <legend class="login" style="font-size: 17px;
+font-weight: bold;">Private Key :</legend>
+                        <p>  {{ user.privateKey }}    </p>
+                    </div>
+                    <div align="center" style="position: relative;
+top: 16px;">
+                        <a class="waves-effect waves-light btn" href="{{ path('login') }}"><i class="material-icons right">done</i>Log In</a>
+                    </div>
+                </div>
+            </form>
+            <!-- fin Content!-->
+
+
+
+        </div>
+
+    </div>
+{% endblock %}

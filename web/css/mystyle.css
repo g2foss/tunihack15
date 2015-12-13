@@ -1,0 +1,123 @@
+ #back{
+ background: url('index.jpg') no-repeat center fixed;
+  -webkit-background-size: cover; /* pour anciens Chrome et Safari */
+  background-size: cover;
+
+}
+
+.trans {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  bottom: 0px;
+  right: 0px;
+  background-color: #454242;
+  opacity: 0.5;
+}
+body{
+  background-color:rgb(215, 215, 215);
+}
+  #titleIndex{
+  	    font-family: eurostile;
+    font-size: 48px;
+    color: white;
+    text-align: center;
+    text-shadow: 0px 0px 26px gray;
+    margin-bottom: 20px;
+  }
+  .index_section {
+    position: absolute;
+  width: 100%;
+  transform: translateY(50%);
+  }
+.index_actions {
+margin-top: 40px;
+}
+  .index_actions_action1, .index_actions_action2 {
+    display: inline-block;
+    width: 170px;
+  }
+  .positionButtons{
+  	    position: relative;
+    left: 29%;
+    top:30px;
+  }
+  .index_section {
+
+  }
+  .positionButtons1{
+  	    position: relative;
+    top: 45px;
+    left: 29%;
+    width: 160px;
+
+  }
+
+  .content{
+  	    background-color: white;
+  padding: 25px !important;
+  margin: 50px;
+  }
+  .login{
+  	    font-family: eurostile;
+    margin-top: -2px;
+    font-size: 30px;
+  }
+  .page-footer{
+  	    margin-top: 20px;
+    padding-top: 20px;
+    background-color: #eaeaea;
+  }
+
+  .myInput {
+    border: 1px solid rgb(208, 208, 208) !important;
+    width: auto !important;
+    height: 40px !important;
+    border-radius: 3px !important;
+    position: relative !important;
+    top: 6px !important;
+    padding: 0px 4px !important;
+  }
+
+  .myInput:hover,  .myInput:focus {
+    box-shadow: none !important;
+
+  }
+  #foot{
+  	      background-color: #2c3e50 !important;
+    min-height: 50px;
+
+    padding: 3px 40px;
+
+  }
+  html, body {
+  	height: 100%;
+  }
+
+  .unit_price_input {
+    border: 1px solid rgb(187, 187, 187);
+    height: 40px;
+    padding: 0px 4px;
+    width: auto;
+  }
+  #owner{
+
+    padding-left: 12px;
+    padding: 10px;
+  }
+  #picture{
+  	    height: 40px;
+    position: relative;
+    top: 4px;
+  }
+  #foot {
+    color: rgb(194, 192, 192);
+  }
+  .nav-wrapper {
+    padding: 0px 40px;
+  }
+  .soustitre{
+  	 font-family: eurostile;
+
+    font-size: 20px;
+  }

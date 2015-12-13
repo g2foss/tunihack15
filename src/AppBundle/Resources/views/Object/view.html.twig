@@ -1,0 +1,96 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}AppBundle:Object:view{% endblock %}
+
+{% block body %}
+
+
+
+    <div class="row">
+        <div class=" content z-depth-1 col l10 offset-l1 ">
+            <legend class="login"> {{ object.name }} :</legend>
+            <p>
+                {{ object.description }}
+            </p>
+            {{ form_start(form) }}
+            <table class="bordered">
+                <thead>
+                <tr>
+                    <th data-field="id">Name</th>
+                    <th data-field="name">Quantity</th>
+                    <th data-field="price">Unit Price (DT)</th>
+                    <th data-field="price">Total (DT)</th>
+                </tr>
+                </thead>
+                <tbody>
+            {% for i,field in object.fields %}
+                <tr>
+                    <td style="padding: 0px 5px;">{{ field.name }}</td>
+                    <td id="event_quantity_{{ i }}" style="padding: 0px 5px;">{{ field.quantity }}</td>
+                    <td style="padding: 0px 5px;">
+                        <div>
+                            <input data-id="{{ i }}" type="text" id="event_values_{{ i }}"  class="input-event-values form-control myInput"  placeholder="Enter the price" name="event[values][{{ i }}]" required="required" />
+                        </div>
+                    </td>
+                    <td style="padding: 0px 5px;" id="event_price_{{ i }}" class="event_price">
+                        0
+                    </td>
+                </tr>
+            {% endfor %}
+                <tr>
+                    <th colspan="3" style="text-align: center">Total (DT)</th>
+                    <th id="total">0</th>
+                </tr>
+                </tbody>
+                </table>
+            <div align="left">
+            <input type="checkbox" id="test5" required="required" />
+            <label for="test5" style=" margin-top: 12px;"> I want to submit my offer</label>
+                </div>
+            <p align="center">
+            {{ form_widget(form.submit,{'attr':{'class':'waves-effect waves-light btn'}}) }}
+            </p>
+    {{ form_rest(form) }}
+            {{ form_end(form) }}
+
+
+    </div>
+</div>
+
+
+
+
+{% endblock %}
+
+
+{% block javascripts %}
+    <script>
+        function getTotal(){
+            var total = 0;
+            var prices = document.querySelectorAll('.event_price');
+            for(var i=0; i<inputs.length; i++){
+                var price = prices[i];
+                total+=parseInt(price.innerHTML);
+            }
+            document.querySelector("#total").innerHTML =  total+" DT";
+        }
+        var inputs = document.querySelectorAll('.input-event-values');
+        for(var i=0; i<inputs.length; i++){
+            inputs[i].addEventListener('change', function(e){
+                var id = e.target.getAttribute('data-id');
+                var value = e.target.value;
+                console.log('test2')
+                if(!isNaN(value)){
+                    console.log('test')
+                    var quantity = document.querySelector('#event_quantity_'+id).innerHTML;
+                    var total = document.querySelector('#event_price_'+id);
+                    console.log(quantity);
+                    console.log(value);
+                    total.innerHTML = quantity * value;
+                    getTotal();
+                }
+            });
+        }
+    </script>
+
+{% endblock %}
